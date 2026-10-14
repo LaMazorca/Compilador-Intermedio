@@ -1,0 +1,13 @@
+{
+  "name": "Compilador Intermedio",
+  "version": "1.0.0",
+  "description": "Transforma expresiones aritméticas a Polaca inversa, código de tres direcciones y cuádruplos. Solo usa HTML, CSS y JavaScript vanilla: no requiere instalar paquetes.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

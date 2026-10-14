@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Transformador didáctico de expresiones a representaciones intermedias.">
+  <title>Compilador intermedio</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Lenguajes y Autómatas II</p>
+      <h1>De la expresión al código intermedio</h1>
+      <p class="intro">Escribe una expresión aritmética y observa cómo se organiza en tres representaciones.</p>
+    </div>
+  </header>
+  <main class="layout">
+    <section class="panel">
+      <div class="heading">
+        <div>
+          <p class="eyebrow">Entrada</p>
+          <h2>Expresión aritmética</h2>
+        </div>
+        <span class="badge">01</span>
+      </div>
+      <form id="expression-form" novalidate>
+        <label for="expression">Escribe tu expresión</label>
+        <div class="input-row">
+          <input id="expression" type="text" value="a+b*c+d" autocomplete="off" spellcheck="false" aria-describedby="input-help error-message">
+          <button type="submit">Transformar <span aria-hidden="true">→</span></button>
+        </div>
+        <p id="input-help" class="help">Variables, números, paréntesis y <code>+ - * / ^</code>. Ejemplo: <button id="example-button" class="link-button" type="button">a+b*c+d</button></p>
+        <p id="error-message" class="error" role="alert" hidden></p>
+      </form>
+    </section>
+    <section class="results" aria-live="polite">
+      <div class="heading results-heading">
+        <div>
+          <p class="eyebrow">Salida</p>
+          <h2>Representaciones intermedias</h2>
+        </div>
+        <span id="result-status" class="status">Ejemplo listo</span>
+      </div>
+      <div class="result-grid">
+        <article class="result-card">
+          <div class="card-heading">
+            <span class="letter">A</span>
+            <div>
+              <h3>Polaca inversa</h3>
+              <p>Operadores después de operandos</p>
+            </div>
+          </div>
+          <output id="rpn-output" class="code-output"></output>
+          <p class="note">No necesita paréntesis para indicar precedencia.</p>
+        </article>
+        <article class="result-card">
+          <div class="card-heading">
+            <span class="letter">B</span>
+            <div>
+              <h3>Tres direcciones</h3>
+              <p>Una operación por instrucción</p>
+            </div>
+          </div>
+          <ol id="tac-output" class="instruction-list"></ol>
+        </article>
+        <article class="result-card wide">
+          <div class="card-heading">
+            <span class="letter">C</span>
+            <div>
+              <h3>Cuádruplos</h3>
+              <p>(operador, argumento 1, argumento 2, resultado)</p>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Operador</th>
+                  <th>Arg. 1</th>
+                  <th>Arg. 2</th>
+                  <th>Resultado</th>
+                </tr>
+              </thead>
+              <tbody id="quad-output"></tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="panel walkthrough">
+      <div class="heading">
+        <div>
+          <p class="eyebrow">Cómo se interpreta</p>
+          <h2>El recorrido del ejemplo</h2>
+        </div>
+        <span class="badge">02</span>
+      </div>
+      <div id="walkthrough-content"></div>
+    </section>
+  </main>
+  <footer class="layout">
+    <span>Práctica 1 · Compilador intermedio</span>
+    <span>copyright © 2026</span>
+    <a href="README.md">Abrir guía de estudio</a>
+  </footer>
+</body>
+</html>
